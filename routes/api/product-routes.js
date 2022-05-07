@@ -36,19 +36,25 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     attributes: ["id", "product_name", "price", "stock", "category_id"],
-    include: {
-      model: Category,
-      attributes: ["id", "category_name"],
-      include: {
-        model: Tag,
-        // how do i bring in number of tags?
-        attributes: ["id", "tag_name"],
+    include: [
+      {
+        model: Category,
+        attributes: ["id", "category_name"]
+      },
+      {
+        include: {
+          model: Tag,
+          // how do i bring in number of tags?
+          attributes: ["id", "tag_name"]
+        }
+      },
+      {
         include: {
           model: ProductTag,
           attributes: ["id", "product_id", "tag_id"],
         },
-      },
-    },
+      }
+    ]
   })
   .then(dbProductData => {
     if(!dbProductData) {
