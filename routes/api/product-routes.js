@@ -13,13 +13,13 @@ router.get('/', (req, res) => {
       attributes: ["id", "category_name"],
       },
       {
-        model: Tag,
+        model: Tag, as: 'tags',
         attributes: ['id', 'tag_name']
       },
       {
-          model: ProductTag,
-          attributes: ['id', 'product_id', 'tag_id']
-      }
+        model: ProductTag,
+        attributes: ['id', 'product_id', 'tag_id']
+      },
     ],
   })
   .then(dbProductData => res.json(dbProductData))
@@ -42,17 +42,13 @@ router.get('/:id', (req, res) => {
         attributes: ["id", "category_name"]
       },
       {
-        include: {
-          model: Tag,
+        model: Tag, as: 'tags',
           // how do i bring in number of tags?
           attributes: ["id", "tag_name"]
-        }
       },
       {
-        include: {
           model: ProductTag,
           attributes: ["id", "product_id", "tag_id"],
-        },
       }
     ]
   })
