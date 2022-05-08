@@ -37,7 +37,7 @@
 
   ## Recording
 
-  Link to a recording to showcase the functionality: https://drive.google.com/file/d/1Dg29ANWB2G0NaHUOGftAYeZ6qGa204g8/view 
+  Link to a recording to showcase the functionality: https://drive.google.com/file/d/1unlTlkdMrLL3n7cCFz41zSXmQSJm6iQE/view 
 
   ## Questions 
 
